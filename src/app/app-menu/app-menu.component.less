@@ -1,0 +1,23 @@
+@import "../../styles/variables.less";
+
+:host {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: @app-menu-height;
+	line-height: @app-menu-height;
+	padding: 0 5px;
+
+	// Style
+	border-bottom: @ui-border-color 1px solid;
+}
+
+.logo, .search-container {
+	display: inline-block;
+	height: 100%;
+}
+
+.search-container input {
+	font-size: 1em;
+}

@@ -1,0 +1,10 @@
+<div class='logo'>
+	YouTube Lite
+</div>
+<div class='search-container'>
+	<input 
+		type="text" 
+		placeholder="Search" 
+		[(ngModel)]='searchString'
+		(ngModelChange)="onChange($event)">
+</div>

@@ -1,0 +1,10 @@
+<ul *ngIf="results.length">
+	<li *ngFor="let result of results"
+		(click)="onClickResult(result)">
+		{{result.title}}
+	</li>
+</ul>
+
+<div *ngIf="!results.length">
+	No Videos could be found
+</div>

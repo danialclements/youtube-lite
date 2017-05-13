@@ -1,3 +1,11 @@
-<h1>
-  {{title}}
-</h1>
+<app-menu 
+	[searchString]='searchString'
+	(searchChanged)='onSearchChanged($event)'>
+</app-menu>
+<app-video-list 
+	[results]='results'
+	[isSearching]='isSearching'
+	(onResultSelected)='onResultSelected($event)'>
+</app-video-list>
+<app-video-player [selectedResult]='selectedResult'>
+</app-video-player>
