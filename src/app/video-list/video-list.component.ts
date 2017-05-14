@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IYouTubeSearchResult } from '../youtubeSearchResult';
-import { AppStateService } from '../app-state.service';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
 	selector: 'app-video-list',

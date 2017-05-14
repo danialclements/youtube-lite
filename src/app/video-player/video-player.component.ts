@@ -1,7 +1,7 @@
 /// <reference types="youtube" />
 import { Component, Input } from '@angular/core';
 import { IYouTubeSearchResult } from '../youTubeSearchResult';
-import { AppStateService } from '../app-state.service';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-video-player',

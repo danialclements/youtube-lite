@@ -1,4 +1,4 @@
-import { VideoDurationPipe } from './video-duration.pipe';
+import { VideoDurationPipe } from './pipes/video-duration.pipe';
 
 describe('VideoDurationPipe', () => {
   it('create an instance', () => {

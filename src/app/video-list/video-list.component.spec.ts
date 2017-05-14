@@ -1,9 +1,9 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { VideoListComponent } from './video-list.component';
-import { AppStateService } from '../app-state.service';
+import { AppStateService } from '../services/app-state.service';
 import { MessageComponent } from '../message/message.component';
-import { VideoDurationPipe } from '../video-duration.pipe';
+import { VideoDurationPipe } from '../pipes/video-duration.pipe';
 
 describe('VideoListComponent', () => {
   let component: VideoListComponent;

@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { AppStateService } from './app-state.service';
+import { AppStateService } from './services/app-state.service';
 
 describe('AppStateService', () => {
 

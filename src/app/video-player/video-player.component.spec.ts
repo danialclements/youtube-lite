@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VideoPlayerComponent } from './video-player.component';
 import { VideoControlsComponent } from '../video-controls/video-controls.component';
-import { AppStateService } from '../app-state.service';
+import { AppStateService } from '../services/app-state.service';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 describe('VideoPlayerComponent', () => {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { IYouTubeSearchResult } from './youTubeSearchResult';
+import { IYouTubeSearchResult } from '../youTubeSearchResult';
 
 @Injectable()
 export class AppStateService {

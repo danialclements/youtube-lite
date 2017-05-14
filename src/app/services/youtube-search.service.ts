@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IYouTubeSearchResult } from './youTubeSearchResult';
+import { IYouTubeSearchResult } from '../youTubeSearchResult';
 
 import { Http, Response, RequestOptionsArgs, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
