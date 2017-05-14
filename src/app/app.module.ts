@@ -9,6 +9,7 @@ import { VideoListComponent } from './video-list/video-list.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { VideoControlsComponent } from './video-controls/video-controls.component';
 import { AppStateService } from './app-state.service';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppStateService } from './app-state.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    YoutubePlayerModule
   ],
   providers: [
     YouTubeSearchService,

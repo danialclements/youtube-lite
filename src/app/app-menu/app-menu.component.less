@@ -13,13 +13,36 @@
 	// Style
 	border-bottom: @ui-border-color 1px solid;
 	background-color: @ui-background-color;
+	vertical-align: middle;
 }
 
-.logo, .search-container {
-	display: inline-block;
-	height: 100%;
+.logo {
+	display: inline;
+	color: @ui-youtube-color;
+	i.fa {
+		line-height: @app-menu-height;
+	}
 }
 
-.search-container input {
-	font-size: 1em;
+.search-container {
+	display: inline;
+	border: 1px solid @ui-border-color;
+	background: @ui-color-white;
+	padding: 5px;
+	color: @ui-search-text-color;
+	vertical-align: super;
+	.search-input, .search-button {
+		border: none;
+		background: none;
+		padding: 0;
+		margin: 0;
+		color: inherit;
+		font-size: 1.2em;
+	}
+	.search-input:focus {
+		outline: none;
+	}
+	.search-button {
+		cursor: pointer;
+	}
 }

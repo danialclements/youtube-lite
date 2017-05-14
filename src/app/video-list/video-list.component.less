@@ -22,5 +22,14 @@ ul {
 		border-bottom: 1px solid @ui-border-color;
 		padding: 5px;
 		height: 50px;
+		transition: all 250ms ease-in-out;
+		&:hover {
+			background: fade(@ui-highlight-color, 50%);
+
+		}
+		&.active {
+			background: @ui-highlight-color;
+			color: contrast(@ui-highlight-color);
+		}
 	}
 }

@@ -2,8 +2,14 @@
   <div class="video-overlay">
     Now Showing! {{selectedResult.title}}
   </div>
-  
-  <app-video-controls></app-video-controls>
 </div>
-
+<youtube-player
+  class='youtube-player'
+  [hidden]="!selectedResult"
+  height="100%"
+  width="100%"
+  (ready)="savePlayer($event)"
+  (change)="onStateChange($event)">
+</youtube-player>
 <div *ngIf='!selectedResult'>Search and choose a result</div>
+<app-video-controls></app-video-controls>

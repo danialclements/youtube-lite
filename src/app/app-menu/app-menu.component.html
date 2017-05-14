@@ -1,10 +1,14 @@
 <div class='logo'>
-	YouTube Lite
+	<i class="fa fa-youtube-play fa-2x fa-fw"></i>
 </div>
 <div class='search-container'>
 	<input 
 		type="text" 
-		placeholder="Search" 
-		[(ngModel)]='searchString'
-		(ngModelChange)="onChange($event)">
+		class='search-input'
+		placeholder="Search YouTube" 
+		[(ngModel)]='searchTerms'
+		(keypress)='onInputKeypress($event)'>
+	<button (click)="onClickSearch(searchTerms)" class='search-button'>
+		<i class="fa fa-search"></i>
+	</button>
 </div>

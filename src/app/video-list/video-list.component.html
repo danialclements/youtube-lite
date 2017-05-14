@@ -1,5 +1,6 @@
 <ul *ngIf="results.length">
 	<li *ngFor="let result of results"
+		[class]="getActiveClass(result)"
 		(click)="onClickResult(result)">
 		{{result.title}}
 	</li>

@@ -9,19 +9,18 @@ import { AppStateService } from '../app-state.service';
 export class AppMenuComponent {
 	private debounceTimeout: number = 500;
 	private currentTimeout: number;
+	searchTerms: string;
 	constructor(private _appStateService: AppStateService) {}
-	onChange(searchString): void {
-		// Clear the current timer if one exists
-		// This prevents the app from firing an API call every time the user types
-		if (this.currentTimeout) {
-			clearTimeout(this.currentTimeout);
-			this.currentTimeout = null;
+	onClickSearch() {
+		this.setSearchTerms();
+	}
+	onInputKeypress(event: KeyboardEvent) {
+		// Allow the user to press enter to search for terms
+		if (event.code === 'Enter') {
+			this.setSearchTerms();
 		}
-
-		// Start a new timer
-		this.currentTimeout = setTimeout(() => {
-			// Update app state with new terms so subscribers can react
-			this._appStateService.setSearchTerms(searchString)
-		}, this.debounceTimeout);
+	}
+	setSearchTerms() {
+		this._appStateService.setSearchTerms(this.searchTerms);
 	}
 }
