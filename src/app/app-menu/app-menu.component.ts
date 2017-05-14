@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppStateService } from '../app-state.service';
 
 @Component({
 	selector: 'app-menu',
@@ -8,8 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class AppMenuComponent {
 	private debounceTimeout: number = 500;
 	private currentTimeout: number;
-	@Input() searchString: string;
-	@Output() searchChanged: EventEmitter<string> = new EventEmitter();
+	constructor(private _appStateService: AppStateService) {}
 	onChange(searchString): void {
 		// Clear the current timer if one exists
 		// This prevents the app from firing an API call every time the user types
@@ -20,7 +20,8 @@ export class AppMenuComponent {
 
 		// Start a new timer
 		this.currentTimeout = setTimeout(() => {
-			this.searchChanged.emit(searchString);
+			// Update app state with new terms so subscribers can react
+			this._appStateService.setSearchTerms(searchString)
 		}, this.debounceTimeout);
 	}
 }

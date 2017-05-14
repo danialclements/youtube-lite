@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IYouTubeSearchResult } from './youtubeSearchResult';
 import { YouTubeSearchService } from './youtube-search.service';
-
+import { AppStateService } from './app-state.service';
 
 @Component({
   selector: 'app-root',
@@ -14,27 +14,22 @@ export class AppComponent {
   searchString: string;
   isSearching: boolean = false;
   errorMessage: string = "";
-  constructor(private _youTubeSearchService: YouTubeSearchService) { }
+  constructor(private _youTubeSearchService: YouTubeSearchService, private _appStateService: AppStateService) { 
+    // Subscribe to changes to search terms and issue a search
+    this._appStateService.searchTerms.subscribe(searchTerms => this.searchVideos(searchTerms));
+  }
   searchVideos(terms: string = ""): void {
 
     // Ensure we have something to search for
     if (terms.trim()) {
-      this.isSearching = true;
+      this._appStateService.setIsSearching(true);
 
       // Search the service for current search terms
       this._youTubeSearchService.getVideosMatchingString(terms)
         .subscribe(
-        results => this.results = results,
+        results => this._appStateService.setSearchResults(results),
         error => this.errorMessage = error
         );
     }
-  }
-  onSearchChanged(searchTerms: string): void {
-    this.searchVideos(searchTerms);
-    console.log(`Searching for: ${searchTerms}`);
-  }
-  onResultSelected(result) {
-    this.selectedResult = result;
-    console.log('you clicked on a result', result);
   }
 }

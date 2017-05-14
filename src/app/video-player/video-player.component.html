@@ -1,5 +1,9 @@
 <div *ngIf='selectedResult'>
-  Now Showing! {{selectedResult.title}}
+  <div class="video-overlay">
+    Now Showing! {{selectedResult.title}}
+  </div>
+  
+  <app-video-controls></app-video-controls>
 </div>
 
 <div *ngIf='!selectedResult'>Search and choose a result</div>

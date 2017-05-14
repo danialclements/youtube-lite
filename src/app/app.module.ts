@@ -7,13 +7,16 @@ import { YouTubeSearchService } from './youtube-search.service';
 import { AppMenuComponent } from './app-menu/app-menu.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { VideoControlsComponent } from './video-controls/video-controls.component';
+import { AppStateService } from './app-state.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppMenuComponent,
     VideoListComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    VideoControlsComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,8 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     HttpModule
   ],
   providers: [
-    YouTubeSearchService
+    YouTubeSearchService,
+    AppStateService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IYouTubeSearchResult } from '../youTubeSearchResult';
+import { AppStateService } from '../app-state.service';
 
 @Component({
   selector: 'app-video-player',
@@ -7,5 +8,8 @@ import { IYouTubeSearchResult } from '../youTubeSearchResult';
   styleUrls: ['./video-player.component.less']
 })
 export class VideoPlayerComponent {
-  @Input() selectedResult: IYouTubeSearchResult;
+  selectedResult: IYouTubeSearchResult;
+  constructor(private _appStateService: AppStateService) {
+    this._appStateService.selectedResult.subscribe(selectedResult => this.selectedResult = selectedResult);
+  }
 }

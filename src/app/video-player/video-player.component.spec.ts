@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VideoPlayerComponent } from './video-player.component';
+import { VideoControlsComponent } from '../video-controls/video-controls.component';
+import { AppStateService } from '../app-state.service';
 
 describe('VideoPlayerComponent', () => {
   let component: VideoPlayerComponent;
@@ -8,7 +10,13 @@ describe('VideoPlayerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideoPlayerComponent ]
+      declarations: [ 
+        VideoPlayerComponent,
+        VideoControlsComponent
+      ],
+      providers: [
+        AppStateService
+      ]
     })
     .compileComponents();
   }));

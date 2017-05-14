@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { IYouTubeSearchResult } from '../youtubeSearchResult';
+import { AppStateService } from '../app-state.service';
 
 @Component({
 	selector: 'app-video-list',
@@ -7,12 +8,17 @@ import { IYouTubeSearchResult } from '../youtubeSearchResult';
 	styleUrls: ['./video-list.component.less']
 })
 export class VideoListComponent {
-	@Input() results: IYouTubeSearchResult[];
-	@Input() isSearching: false;
+	results: IYouTubeSearchResult[];
+	isSearching: boolean;
 	selectedResult: IYouTubeSearchResult;
-	@Output() onResultSelected: EventEmitter<IYouTubeSearchResult> = new EventEmitter();
+	constructor(private _appStateService: AppStateService) {
+		this._appStateService.searchResults.subscribe(results => this.results = results);
+		this._appStateService.isSearching.subscribe(isSearching => this.isSearching = isSearching);
+	}
 	onClickResult(searchResult: IYouTubeSearchResult) {
+		// Set a local value so we can highlight which result is selectd
 		this.selectedResult = searchResult;
-		this.onResultSelected.emit(searchResult);
+		// Update app state with the selected result
+		this._appStateService.setSelectedResult(searchResult);
 	}
 }
