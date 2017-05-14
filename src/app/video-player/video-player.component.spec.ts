@@ -4,6 +4,7 @@ import { VideoPlayerComponent } from './video-player.component';
 import { VideoControlsComponent } from '../video-controls/video-controls.component';
 import { AppStateService } from '../services/app-state.service';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { MessageComponent } from '../message/message.component';
 
 describe('VideoPlayerComponent', () => {
   let component: VideoPlayerComponent;
@@ -13,7 +14,8 @@ describe('VideoPlayerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ 
         VideoPlayerComponent,
-        VideoControlsComponent
+        VideoControlsComponent,
+        MessageComponent
       ],
       providers: [
         AppStateService

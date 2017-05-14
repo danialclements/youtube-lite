@@ -1,0 +1,60 @@
+@import '../../styles/variables.less';
+
+@button-width: 50px;
+@base-color: #333;
+
+:host {
+	position: absolute;
+	height: @video-controls-height;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(lighten(@base-color, 20%), @base-color);
+	color: contrast(@base-color);
+}
+
+.left-buttons, .center, .right-buttons {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.left-buttons, .right-buttons {
+	width: @button-width;
+	button {
+		height: 100%;
+		width: 100%;
+		background: none;
+		border: none;
+		color: contrast(@base-color);
+		cursor: pointer;
+		&:disabled {
+			color: darken(contrast(@base-color), 40%);
+			cursor: not-allowed;
+		}
+		&:focus {
+			outline: none;
+		}
+		&:active {
+			color: @ui-highlight-color;
+		}
+	}
+}
+.left-buttons {
+	left: 0;
+	border-right: 1px solid @ui-border-color;
+}
+
+.right-buttons {
+	right: 0;
+	border-left: 1px solid @ui-border-color;
+}
+.center {
+	right: @button-width;
+	left: @button-width;
+	text-align: center;
+}
+
+.video-description {
+	font-size: 0.8em;
+}

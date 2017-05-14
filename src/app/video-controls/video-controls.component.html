@@ -1,3 +1,24 @@
-<p>
-  video-controls works!
-</p>
+<div class="left-buttons">
+  <button
+      title="Go to previous video"
+      [disabled]="!canGoBack()" 
+      (click)="onClickGoBackward()">
+    <i class="fa fa-fast-backward fa-lg"></i>
+  </button>
+</div>
+<div class="center" *ngIf="selectedResult">
+  <div class="video-title">
+    {{selectedResult.title}}
+  </div>
+  <div class="video-description">
+    {{selectedResult.description}}
+  </div>
+</div>
+<div class="right-buttons">
+  <button 
+      title="Go to next video"
+      [disabled]="!canGoForward()"
+      (click)="onClickGoForward()">
+    <i class="fa fa-fast-forward fa-lg"></i>
+  </button>
+</div>

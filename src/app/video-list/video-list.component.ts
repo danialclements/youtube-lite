@@ -16,6 +16,7 @@ export class VideoListComponent {
 		this._appStateService.searchResults.subscribe(results => this.results = results);
 		this._appStateService.isSearching.subscribe(this.onChangeIsSearching.bind(this));
 		this._appStateService.searchTerms.subscribe(searchTerms => this.searchTerms = searchTerms);
+		this._appStateService.selectedResult.subscribe(selectedResult => this.selectedResult = selectedResult);
 	}
 	getActiveClass(result: IYouTubeSearchResult) {
 		return (result === this.selectedResult) ? 'active' : '';
