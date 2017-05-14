@@ -13,9 +13,21 @@
 
 }
 
+@media @smartphones {
+	:host {
+		top: @video-player-mobile-height + @app-menu-height;
+		left: 0;
+		right: 0;
+		width: auto;
+		border-right: none;
+	}
+}
+
 @result-height: 100px;
 @thumbnail-height: 90px;
 @thumbnail-width: 120px;
+@thumnail-height-small: @thumbnail-height * 20%;
+@thumnail-width-small: @thumbnail-width * 20%;
 
 ul {
 	list-style-type: none;
@@ -29,29 +41,6 @@ ul {
 		transition: all 250ms ease-in-out;
 		cursor: pointer;
 		overflow: hidden;
-		.thumbnail-container {
-			height: @thumbnail-height;
-			width: @thumbnail-width;
-			float: left;
-			position: relative;
-			.result-duration {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				color: #fff;
-				background: rgba(0,0,0,0.5);
-				padding: 3px;
-				font-size: 0.9em;
-			}
-		}
-		div.result-metadata {
-			padding: 5px;
-			margin-left: @thumbnail-width;
-			.result-description {
-				.subtle;
-				font-size: 0.8em;
-			}
-		}
 		&:hover {
 			background: fade(@ui-highlight-color, 50%);
 
@@ -65,3 +54,34 @@ ul {
 		}
 	}
 }
+
+div.thumbnail-container {
+	height: @thumbnail-height;
+	width: @thumbnail-width;
+	float: left;
+	position: relative;
+	.result-duration {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		color: #fff;
+		background: rgba(0,0,0,0.5);
+		padding: 3px;
+		font-size: 0.9em;
+	}
+}
+div.result-metadata {
+	padding: 5px;
+	margin-left: @thumbnail-width;
+	.result-description {
+		.subtle;
+		font-size: 0.8em;
+	}
+}
+
+// @media @smartphones {
+// 	div.thumbnail-container {
+// 		height: @thumnail-height-small;
+// 		width: @thumnail-width-small;
+// 	}
+// }

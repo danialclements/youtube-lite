@@ -1,6 +1,7 @@
 @import '../../styles/variables.less';
 
-@button-width: 50px;
+@button-width-large: 50px;
+@button-width-small: 30px;
 @base-color: #333;
 
 :host {
@@ -11,6 +12,7 @@
 	bottom: 0;
 	background: linear-gradient(lighten(@base-color, 20%), @base-color);
 	color: contrast(@base-color);
+	overflow: hidden;
 }
 
 .left-buttons, .center, .right-buttons {
@@ -20,7 +22,7 @@
 }
 
 .left-buttons, .right-buttons {
-	width: @button-width;
+	width: @button-width-large;
 	button {
 		height: 100%;
 		width: 100%;
@@ -50,11 +52,30 @@
 	border-left: 1px solid @ui-border-color;
 }
 .center {
-	right: @button-width;
-	left: @button-width;
-	text-align: center;
+	right: @button-width-large;
+	left: @button-width-large;
+	padding: 5px;
+	//text-align: center;
 }
 
 .video-description {
 	font-size: 0.8em;
+	overflow: hidden;
+}
+
+.video-title {
+	font-weight: bold;
+}
+
+@media @smartphones {
+	.video-title {
+		font-size: @font-size-small;
+	}
+	.left-buttons, .right-buttons {
+		width: @button-width-small;
+	}
+	.center {
+		right: @button-width-small;
+		left:  @button-width-small;
+	}
 }

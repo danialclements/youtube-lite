@@ -5,6 +5,4 @@ import { Component, Input } from '@angular/core';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.less']
 })
-export class MessageComponent {
-  @Input() message: string;
-}
+export class MessageComponent {}

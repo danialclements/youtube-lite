@@ -7,3 +7,32 @@
 .subtle(@color: @ui-subtle-text-color) {
 	color: @color;
 }
+
+.message-box-mixin(@color: @ui-background-color) {
+	@message-box-color: lighten(@color, 20%);
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	background: @color;
+	overflow: auto;
+	.message-box {
+		border: 1px solid @ui-border-color;
+		margin: 10px;
+		padding: 10px;
+		background: @message-box-color;
+		color: contrast(@message-box-color);
+		margin: auto;
+		.shadowed;
+		max-width: 80vw;
+	}
+}
+
+.message-box-default {
+	.message-box-mixin(@ui-background-color);
+}
+.message-box-dark {
+	.message-box-mixin(#333);
+}

@@ -6,5 +6,8 @@
   (ready)="savePlayer($event)"
   (change)="onStateChange($event)">
 </youtube-player>
-<app-message *ngIf='!selectedResult'>Search and choose a result</app-message>
+<app-message class='message-box-dark' *ngIf='!selectedResult'>
+  <i class="fa fa-info-circle"></i>
+  Select a result to play
+</app-message>
 <app-video-controls *ngIf='selectedResult'></app-video-controls>
