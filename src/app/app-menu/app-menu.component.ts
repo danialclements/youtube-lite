@@ -14,6 +14,10 @@ export class AppMenuComponent {
 	onClickSearch() {
 		this.setSearchTerms();
 	}
+	onClickClear() {
+		this.searchTerms = "";
+		this.setSearchTerms();
+	}
 	onInputKeypress(event: KeyboardEvent) {
 		// Allow the user to press enter to search for terms
 		if (event.code === 'Enter') {

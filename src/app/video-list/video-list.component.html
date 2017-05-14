@@ -2,10 +2,30 @@
 	<li *ngFor="let result of results"
 		[class]="getActiveClass(result)"
 		(click)="onClickResult(result)">
-		{{result.title}}
+		
+		<div class="thumbnail-container">
+			<img class='result-thumbnail' [src]="result.thumbnailUrl" [alt]="result.title">
+			<span class="result-duration">
+				{{result.duration | videoDuration}}
+			</span>
+		</div>
+		
+		<div class="result-metadata">
+			<div class="result-title">
+				{{result.title}}
+			</div>
+			<div class="result-description" [title]="result.description">
+				{{result.description}}
+			</div>
+		</div>
 	</li>
 </ul>
 
-<div *ngIf="!results.length">
-	No Videos could be found
-</div>
+<app-message *ngIf="!results.length && !isSearching">
+	No videos to display.
+</app-message>
+
+<app-message *ngIf="isSearching">
+	<i class="fa fa-refresh fa-spin"></i>
+	Searching for '{{searchTerms}}'
+</app-message>

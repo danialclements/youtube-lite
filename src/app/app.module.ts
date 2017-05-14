@@ -10,6 +10,8 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { VideoControlsComponent } from './video-controls/video-controls.component';
 import { AppStateService } from './app-state.service';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { MessageComponent } from './message/message.component';
+import { VideoDurationPipe } from './video-duration.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { YoutubePlayerModule } from 'ng2-youtube-player';
     AppMenuComponent,
     VideoListComponent,
     VideoPlayerComponent,
-    VideoControlsComponent
+    VideoControlsComponent,
+    MessageComponent,
+    VideoDurationPipe
   ],
   imports: [
     BrowserModule,

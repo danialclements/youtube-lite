@@ -3,12 +3,22 @@
 </div>
 <div class='search-container'>
 	<input 
+		autofocus
 		type="text" 
 		class='search-input'
 		placeholder="Search YouTube" 
 		[(ngModel)]='searchTerms'
 		(keypress)='onInputKeypress($event)'>
-	<button (click)="onClickSearch(searchTerms)" class='search-button'>
+	<button *ngIf='searchTerms' 
+			(click)="onClickClear()" 
+			class='search-button'
+			title='Click to clear the search'>
+		<i class="fa fa-times-circle"></i>
+	</button>
+	<button (click)="onClickSearch(searchTerms)" 
+			class='search-button'
+			title='Click to search'
+			>
 		<i class="fa fa-search"></i>
 	</button>
 </div>

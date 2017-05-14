@@ -27,8 +27,14 @@ export class AppComponent {
       // Search the service for current search terms
       this._youTubeSearchService.getVideosMatchingString(terms)
         .subscribe(
-        results => this._appStateService.setSearchResults(results),
-        error => this.errorMessage = error
+          (results) => {
+            this._appStateService.setIsSearching(false);
+            this._appStateService.setSearchResults(results);
+          },
+          (error) => {
+            this._appStateService.setIsSearching(false);
+            this.errorMessage = error;
+          }
         );
     }
   }

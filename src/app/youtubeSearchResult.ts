@@ -4,4 +4,5 @@ export interface IYouTubeSearchResult {
 	title: string;
 	description: string;
 	thumbnailUrl: string;
+	duration: string;
 }

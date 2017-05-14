@@ -13,6 +13,10 @@
 
 }
 
+@result-height: 100px;
+@thumbnail-height: 90px;
+@thumbnail-width: 120px;
+
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -21,8 +25,33 @@ ul {
 		display: block;
 		border-bottom: 1px solid @ui-border-color;
 		padding: 5px;
-		height: 50px;
+		height: @result-height;
 		transition: all 250ms ease-in-out;
+		cursor: pointer;
+		overflow: hidden;
+		.thumbnail-container {
+			height: @thumbnail-height;
+			width: @thumbnail-width;
+			float: left;
+			position: relative;
+			.result-duration {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				color: #fff;
+				background: rgba(0,0,0,0.5);
+				padding: 3px;
+				font-size: 0.9em;
+			}
+		}
+		div.result-metadata {
+			padding: 5px;
+			margin-left: @thumbnail-width;
+			.result-description {
+				.subtle;
+				font-size: 0.8em;
+			}
+		}
 		&:hover {
 			background: fade(@ui-highlight-color, 50%);
 
@@ -30,6 +59,9 @@ ul {
 		&.active {
 			background: @ui-highlight-color;
 			color: contrast(@ui-highlight-color);
+			.result-description {
+				color: contrast(@ui-highlight-color);
+			}
 		}
 	}
 }
