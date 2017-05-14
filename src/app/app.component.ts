@@ -8,17 +8,25 @@ import { AppStateService } from './services/app-state.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   results: IYouTubeSearchResult[] = [];
   selectedResult: IYouTubeSearchResult;
   searchString: string;
   isSearching: boolean = false;
+  isInitialLaunch: boolean
   errorMessage: string = "";
   constructor(private _youTubeSearchService: YouTubeSearchService, private _appStateService: AppStateService) { 
     // Subscribe to changes to search terms and issue a search
     this._appStateService.searchTerms.subscribe(searchTerms => this.searchVideos(searchTerms));
+    this._appStateService.isInitialLaunch.subscribe(isInitalLaunch => this.isInitialLaunch = isInitalLaunch);
+  }
+  ngOnInit() {
+    this.isInitialLaunch = this._appStateService.getIsInitalLaunch();
   }
   searchVideos(terms: string = ""): void {
+    if (this.isInitialLaunch) {
+      this._appStateService.setIsInitialLaunch(false);
+    }
 
     // Ensure we have something to search for
     if (terms.trim()) {

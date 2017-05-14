@@ -1,3 +1,4 @@
 <app-menu></app-menu>
-<app-video-list></app-video-list>
-<app-video-player></app-video-player>
+<app-welcome *ngIf="isInitialLaunch"></app-welcome>
+<app-video-list *ngIf="!isInitialLaunch"></app-video-list>
+<app-video-player *ngIf="!isInitialLaunch"></app-video-player>

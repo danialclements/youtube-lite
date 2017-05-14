@@ -11,6 +11,9 @@ export class AppMenuComponent {
 	private currentTimeout: number;
 	searchTerms: string;
 	constructor(private _appStateService: AppStateService) {}
+	onClickLogo() {
+		this._appStateService.setIsInitialLaunch(true);
+	}
 	onClickSearch() {
 		this.setSearchTerms();
 	}

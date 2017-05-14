@@ -26,5 +26,6 @@ describe('AppStateService', () => {
   checkObservableProperty('searchResults');
   checkObservableProperty('searchTerms');
   checkObservableProperty('selectedResult');
+  checkObservableProperty('isInitialLaunch')
   
 });
