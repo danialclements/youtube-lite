@@ -1,4 +1,8 @@
 <app-menu></app-menu>
-<app-welcome *ngIf="isInitialLaunch"></app-welcome>
-<app-video-list *ngIf="!isInitialLaunch"></app-video-list>
-<app-video-player *ngIf="!isInitialLaunch"></app-video-player>
+<app-welcome *ngIf="isInitialLaunch && !errorMessage"></app-welcome>
+<app-video-list *ngIf="!isInitialLaunch && !errorMessage"></app-video-list>
+<app-video-player *ngIf="!isInitialLaunch && !errorMessage"></app-video-player>
+<app-message>
+	<i class="fa fa-exclamation-triangle"></i>
+	An application error occured: {{errorMessage}}
+</app-message>
