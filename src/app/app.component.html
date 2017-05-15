@@ -2,7 +2,7 @@
 <app-welcome *ngIf="isInitialLaunch && !errorMessage"></app-welcome>
 <app-video-list *ngIf="!isInitialLaunch && !errorMessage"></app-video-list>
 <app-video-player *ngIf="!isInitialLaunch && !errorMessage"></app-video-player>
-<app-message>
+<app-message *ngIf="errorMessage">
 	<i class="fa fa-exclamation-triangle"></i>
 	An application error occured: {{errorMessage}}
 </app-message>
